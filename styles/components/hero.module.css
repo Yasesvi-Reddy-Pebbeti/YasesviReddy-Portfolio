@@ -1,0 +1,33 @@
+.hero {
+  background: linear-gradient(180deg, var(--bg) 0%, var(--bg-soft) 100%);
+  color: var(--fg-strong);
+  padding: 5rem 1rem;
+  text-align: center;
+}
+
+.hero h1 {
+  color: var(--fg-strong);
+  font-weight: 700;
+}
+
+.hero p {
+  color: var(--fg);
+  max-width: 700px;
+  margin: 0.5rem auto 2rem;
+  font-size: 1.1rem;
+}
+
+.btnPrimary {
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  padding: 0.7rem 1.2rem;
+  border-radius: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.btnPrimary:hover {
+  background: var(--accent-2);
+}
