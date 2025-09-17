@@ -1,0 +1,68 @@
+.wrap{ display:grid; gap:1.2rem; }
+
+.group{
+  background: var(--bg-soft);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 1rem;
+}
+
+.heading{
+  margin: .2rem 0 .8rem;
+  font-size: 1.05rem;
+  letter-spacing: .3px;
+}
+
+.grid{
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: .6rem .8rem;
+}
+
+/* --- Not buttons anymore: simple label rows --- */
+.item{
+  display: flex;
+  align-items: center;
+  gap: .55rem;
+  padding: .2rem 0;           /* minimal spacing */
+  background: transparent;    /* no chip background */
+  border: none;               /* no border */
+  border-radius: 0;           /* no pill */
+  cursor: default;            /* not clickable */
+  transition: none;           /* no hover animation */
+}
+
+/* No hover effects */
+.item:hover{
+  transform: none;
+  border-color: transparent;
+  background: transparent;
+}
+
+/* Icon: small, clean, no circular badge */
+.icon, .iconPlaceholder{
+  width: 22px;
+  height: 22px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;    /* remove gray bubble */
+  border: none;               /* remove ring */
+  border-radius: 0;
+}
+
+/* Optional: faint placeholder dot if no icon exists */
+/*
+.iconPlaceholder{
+  width: 6px;
+  height: 6px;
+  background: var(--border);
+  border-radius: 999px;
+}
+*/
+
+.label{
+  color: var(--fg);
+  font-size: .95rem;
+}

@@ -1,0 +1,11 @@
+/* styles/layout.module.css */
+.body {
+  background: var(--bg);
+  color: var(--fg);
+
+  /* Sticky-footer layout */
+  min-height: 100svh;               /* use safe viewport on mobile */
+  display: grid;
+  grid-template-rows: auto 1fr auto; /* Nav | Main | Footer */
+}
+
