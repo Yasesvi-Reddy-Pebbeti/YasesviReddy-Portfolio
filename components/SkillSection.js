@@ -7,7 +7,7 @@ import styles from '@/styles/components/skills-section.module.css';
 /** Map a canonical key -> icon file (omit if you don't have one) */
 const ICONS = {
   // --- Technical ---
-  python: '/images/skills/Python.png',
+  python: '/images/skills/python.png',
   java: '/images/skills/java.png',
   'c++': '/images/skills/c-.png',
   html: '/images/skills/html-5.png',
