@@ -1,36 +1,78 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🌐 Yasesvi Reddy Pebbeti — Portfolio
 
-## Getting Started
+![Vercel Deploy](https://vercelbadge.vercel.app/api/Yasesvi-Reddy-Pebbeti/YasesviReddy-Portfolio)
 
-First, run the development server:
+This is my personal portfolio website built with **Next.js**, **Tailwind CSS**, and **Framer Motion**.  
+It showcases my projects, skills, experience, and publications in a clean, modern design.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+🔗 **Live Website:** [https://yasesvireddy-portfolio.vercel.app](https://yasesvireddy-portfolio.vercel.app)
+
+---
+
+## ✨ Features
+
+- ⚡ **Fast and responsive** — powered by Next.js
+- 🎨 **Modern UI** with Tailwind CSS and custom CSS variables
+- 🎥 **Smooth animations** using Framer Motion
+- 🧑‍💻 **Projects showcase** with images, descriptions, and tags
+- 📚 **About Me & Experience** with detailed academic and professional background
+- 📄 **Resume download**
+- 🔗 **Social links** (GitHub, LinkedIn)
+- 📬 **Contact page** with custom SVG illustration and quick links
+
+---
+
+## 🛠️ Tech Stack
+
+- **Framework**: [Next.js](https://nextjs.org/)
+- **Styling**: [Tailwind CSS](https://tailwindcss.com/) + custom CSS
+- **Animations**: [Framer Motion](https://www.framer.com/motion/)
+- **Deployment**: [Vercel](https://vercel.com/)
+- **Icons**: [Lucide React](https://lucide.dev/)
+
+---
+
+## 📂 Project Structure
+
+```
+my-portfolio/
+├── app/                # App Router (pages, layout, metadata)
+├── components/         # Reusable components (Nav, Footer, Hero, etc.)
+├── lib/                # Data (projects, skills, etc.)
+├── public/             # Static assets (images, favicon, SVGs)
+├── styles/             # Component-specific CSS modules
+├── tailwind.config.js  # Tailwind setup
+└── package.json        # Project dependencies
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## 🚀 Getting Started
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 1. Clone the repo
+```bash
+git clone https://github.com/Yasesvi-Reddy-Pebbeti/YasesviReddy-Portfolio.git
+cd YasesviReddy-Portfolio
+```
 
-## Learn More
+### 2. Install dependencies
+```bash
+npm install
+```
 
-To learn more about Next.js, take a look at the following resources:
+### 3. Run development server
+```bash
+npm run dev
+```
+Visit [http://localhost:3000](http://localhost:3000) in your browser.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### 4. Build for production
+```bash
+npm run build
+npm start
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+© 2025 Yasesvi Reddy Pebbeti. All rights reserved.
