@@ -33,8 +33,9 @@ export default function Hero() {
             lineHeight: 1.75,
           }}
         >
-          Graduate CS @ SUNY Poly. I design and ship pragmatic ML + web systems with a clean,
-          editorial aesthetic. React, Next.js, Python, and a love for turning ideas into products.
+          Graduate CS @ SUNY Poly. I design and ship pragmatic ML + web systems
+          with a clean, editorial aesthetic. React, Next.js, Python, and a love
+          for turning ideas into products.
         </motion.p>
 
         <motion.div
@@ -48,9 +49,18 @@ export default function Hero() {
             alignItems: "center",
           }}
         >
-          <a className="btn btn-primary" href="/projects">View Projects</a>
-          <a className="btn btn-ghost" href="/contact">Contact</a>
-          <a className="btn btn-ghost" href="/resume.pdf" target="_blank" rel="noreferrer">
+          <a className="btn btn-primary" href="/projects">
+            View Projects
+          </a>
+          <a className="btn btn-ghost" href="/contact">
+            Contact
+          </a>
+          <a
+            className="btn btn-ghost"
+            href="/YasesviReddyPebbeti_Resume.pdf"
+            target="_blank"
+            rel="noreferrer"
+          >
             Resume
           </a>
 
