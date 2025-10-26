@@ -3,17 +3,54 @@ import "./global.css";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import PageTransition from "@/components/PageTransition";
-
-// Inter Variable (installed)
-import "@fontsource-variable/inter";
+import "@fontsource-variable/inter"; // Inter Variable Font
 
 export const metadata = {
-  title: "Yasesvi Reddy Pebbeti | Portfolio",
-  description: "Full-stack developer & ML enthusiast – projects, skills, and contact.",
-    icons: {
-    icon: './favicon.png',
-    },
-
+  title: "Yasesvi Reddy Pebbeti | Full Stack Developer & ML Enthusiast",
+  description:
+    "Official portfolio of Yasesvi Reddy Pebbeti — Full Stack Developer & Machine Learning Enthusiast. Explore my projects, experience, and contact details.",
+  keywords: [
+    "Yasesvi Reddy Pebbeti",
+    "Yash Pebbeti",
+    "Full Stack Developer",
+    "Software Engineer",
+    "React Developer",
+    "Node.js Developer",
+    "Next.js Portfolio",
+    "Machine Learning Projects",
+    "yasesvireddy.dev",
+  ],
+  authors: [{ name: "Yasesvi Reddy Pebbeti", url: "https://yasesvireddy.dev" }],
+  creator: "Yasesvi Reddy Pebbeti",
+  publisher: "Yasesvi Reddy Pebbeti",
+  icons: {
+    icon: "/favicon.png",
+  },
+  openGraph: {
+    title: "Yasesvi Reddy Pebbeti | Full Stack Developer & ML Enthusiast",
+    description:
+      "Explore the portfolio of Yasesvi Reddy Pebbeti — showcasing software engineering and AI-driven projects.",
+    url: "https://yasesvireddy.dev",
+    siteName: "Yasesvi Reddy Pebbeti Portfolio",
+    images: [
+      {
+        url: "/favicon.png", // using favicon as fallback OG image
+        width: 512,
+        height: 512,
+        alt: "Yasesvi Reddy Pebbeti Portfolio",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary",
+    title: "Yasesvi Reddy Pebbeti | Full Stack Developer & ML Enthusiast",
+    description:
+      "Portfolio of Yasesvi Reddy Pebbeti — Full Stack Developer, AI & Web Engineer.",
+    images: ["/favicon.png"],
+  },
+  metadataBase: new URL("https://yasesvireddy.dev"),
 };
 
 export default function RootLayout({ children }) {
