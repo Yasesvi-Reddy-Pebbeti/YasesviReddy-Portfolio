@@ -57,7 +57,7 @@ export default function Hero() {
           </a>
           <a
             className="btn btn-ghost"
-            href="/YasesviReddyPebbeti_Resume.pdf"
+            href="/YasesviReddy_Pebbeti_SoftwareEngineer.pdf"
             target="_blank"
             rel="noreferrer"
           >
