@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://yasesvireddy.dev
+
+# Sitemaps
+Sitemap: https://yasesvireddy.dev/sitemap.xml
