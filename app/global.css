@@ -5,7 +5,7 @@
 
 /* 2) Base + tokens (light, professional) */
 @layer base {
-  :root{
+  :root {
     --bg: #ffffff;
     --bg-soft: #fafafa;
     --fg: #111111;
@@ -14,52 +14,88 @@
     --accent: #111111;
     --accent-2: #000000;
     --card: #ffffff;
-    --border: rgba(0,0,0,.08);
+    --border: rgba(0, 0, 0, 0.08);
     --radius: 16px;
-    --shadow: 0 10px 30px rgba(0,0,0,.06);
+    --shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
   }
 
   /* sticky footer layout */
-  html, body { height: 100%; }                 /* NEW */
-  html { background-color: var(--bg); }
-  *, *::before, *::after { box-sizing: border-box; }
-  html, body { margin: 0; padding: 0; }
+  html,
+  body {
+    height: 100%;
+  } /* NEW */
+  html {
+    background-color: var(--bg);
+  }
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+  html,
+  body {
+    margin: 0;
+    padding: 0;
+  }
 
-  body{
+  body {
     /* uses your serif by default; Inter is loaded but we keep your style */
-    font-family: var(--font-serif, "Source Serif 4", Georgia, "Times New Roman", serif);
+    font-family: var(
+      --font-serif,
+      "Source Serif 4",
+      Georgia,
+      "Times New Roman",
+      serif
+    );
     background: var(--bg);
     color: var(--fg);
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
 
     /* sticky footer layout */
-    min-height: 100vh;                          /* NEW */
-    display: flex;                              /* NEW */
-    flex-direction: column;                     /* NEW */
+    min-height: 100vh; /* NEW */
+    display: flex; /* NEW */
+    flex-direction: column; /* NEW */
   }
 
-  a{
+  a {
     color: var(--fg);
     text-decoration: none;
     border-bottom: 1px solid transparent;
   }
-  a:hover{ border-color: var(--fg); }
+  a:hover {
+    border-color: var(--fg);
+  }
 
   /* centered readable width */
-  main{
-    flex: 1;                                    /* NEW: lets footer sit at bottom */
+  main {
+    flex: 1; /* NEW: lets footer sit at bottom */
     width: min(1100px, 100%);
     margin: 0 auto;
     padding: 2.2rem 1rem;
   }
 
-  h1{ font-size: clamp(2rem, 4.5vw, 3rem); letter-spacing:-.02em; color: var(--fg-strong); }
-  h2{ font-size: clamp(1.3rem, 2vw, 1.6rem); letter-spacing:-.01em; color: var(--fg-strong); margin: 0 0 .8rem; }
-  h3{ margin:.2rem 0 .5rem; color: var(--fg-strong); }
-  p{ color: var(--muted); line-height: 1.75; }
+  h1 {
+    font-size: clamp(2rem, 4.5vw, 3rem);
+    letter-spacing: -0.02em;
+    color: var(--fg-strong);
+  }
+  h2 {
+    font-size: clamp(1.3rem, 2vw, 1.6rem);
+    letter-spacing: -0.01em;
+    color: var(--fg-strong);
+    margin: 0 0 0.8rem;
+  }
+  h3 {
+    margin: 0.2rem 0 0.5rem;
+    color: var(--fg-strong);
+  }
+  p {
+    color: var(--muted);
+    line-height: 1.75;
+  }
 
-  section.block{
+  section.block {
     background: var(--bg-soft);
     border: 1px solid var(--border);
     border-radius: var(--radius);
@@ -67,17 +103,101 @@
     padding: 1.2rem;
   }
 
-  footer{ color:#6b7280; }
+  footer {
+    color: #6b7280;
+  }
 }
 
 /* 3) Component classes using Tailwind utilities */
 @layer components {
-  .btn { @apply inline-block px-4 py-3 rounded-xl transition transform duration-200; }
-  .btn:hover { @apply -translate-y-0.5; }
+  .btn {
+    @apply inline-block px-4 py-3 rounded-xl transition transform duration-200;
+  }
+  .btn:hover {
+    @apply -translate-y-0.5;
+  }
 
-  .btn-primary { @apply bg-black text-white; }
-  .btn-primary:hover { @apply opacity-90; }
+  .btn-primary {
+    @apply bg-black text-white;
+  }
+  .btn-primary:hover {
+    @apply opacity-90;
+  }
 
-  .btn-ghost { @apply border border-black text-black bg-transparent; }
-  .btn-ghost:hover { @apply bg-black text-white; }
+  .btn-ghost {
+    @apply border border-black text-black bg-transparent;
+  }
+  .btn-ghost:hover {
+    @apply bg-black text-white;
+  }
+}
+
+/* 4) Responsive layout refinements */
+@layer base {
+  /* Prevent horizontal scroll on small screens */
+  html,
+  body {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  /* Make main content narrower and padded on mobile */
+  @media (max-width: 768px) {
+    main {
+      width: 100%;
+      padding: 1.25rem;
+    }
+
+    h1 {
+      font-size: 1.8rem;
+    }
+
+    h2 {
+      font-size: 1.3rem;
+    }
+
+    h3 {
+      font-size: 1.1rem;
+    }
+
+    p {
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    nav {
+      padding: 0.75rem 1rem !important;
+    }
+
+    section.block {
+      padding: 1rem;
+    }
+  }
+
+  /* Extra-small screens (phones <480px) */
+  @media (max-width: 480px) {
+    h1 {
+      font-size: 1.5rem;
+    }
+
+    h2 {
+      font-size: 1.15rem;
+    }
+
+    main {
+      padding: 1rem;
+    }
+
+    a {
+      font-size: 0.95rem;
+    }
+  }
+}
+
+/* 5) Utility helper for responsive grids */
+@layer components {
+  .grid-responsive {
+    @apply grid gap-6;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
 }
