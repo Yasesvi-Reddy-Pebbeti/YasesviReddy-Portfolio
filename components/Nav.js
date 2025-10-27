@@ -1,10 +1,19 @@
 "use client";
 import Link from "next/link";
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function Nav() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  // Detect screen width dynamically (handles Tailwind/global CSS conflicts)
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth <= 768);
+    handleResize(); // check on mount
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   const navLinks = [
     { name: "Home", href: "/" },
@@ -61,51 +70,50 @@ export default function Nav() {
           </Link>
         </div>
 
-        {/* Hamburger Icon (Mobile Only) */}
-        <button
-          onClick={() => setMenuOpen(!menuOpen)}
-          style={{
-            display: "none",
-            background: "none",
-            border: "none",
-            fontSize: "1.6rem",
-            cursor: "pointer",
-            color: "var(--fg)",
-          }}
-          className="mobile-menu-btn"
-          aria-label="Toggle Menu"
-        >
-          ☰
-        </button>
-
-        {/* Desktop Links */}
-        <div
-          style={{
-            display: "flex",
-            gap: "1.25rem",
-            alignItems: "center",
-            fontWeight: 500,
-          }}
-          className="desktop-menu"
-        >
-          {navLinks.map((link) => (
-            <Link
-              key={link.name}
-              href={link.href}
-              style={{
-                textDecoration: "none",
-                color: "var(--fg)",
-                transition: "color 0.2s ease",
-              }}
-            >
-              {link.name}
-            </Link>
-          ))}
-        </div>
+        {/* Show hamburger on mobile, links on desktop */}
+        {isMobile ? (
+          <button
+            onClick={() => setMenuOpen(!menuOpen)}
+            style={{
+              background: "none",
+              border: "none",
+              fontSize: "1.8rem",
+              cursor: "pointer",
+              color: "var(--fg)",
+              marginLeft: "auto",
+            }}
+            aria-label="Toggle Menu"
+          >
+            {menuOpen ? "✕" : "☰"}
+          </button>
+        ) : (
+          <div
+            style={{
+              display: "flex",
+              gap: "1.25rem",
+              alignItems: "center",
+              fontWeight: 500,
+            }}
+          >
+            {navLinks.map((link) => (
+              <Link
+                key={link.name}
+                href={link.href}
+                style={{
+                  textDecoration: "none",
+                  color: "var(--fg)",
+                  transition: "color 0.2s ease",
+                }}
+              >
+                {link.name}
+              </Link>
+            ))}
+          </div>
+        )}
       </div>
 
-      {/* Mobile Dropdown Menu */}
-      {menuOpen && (
+      {/* Dropdown menu on mobile */}
+      {isMobile && menuOpen && (
         <div
           style={{
             display: "flex",
@@ -114,8 +122,8 @@ export default function Nav() {
             padding: "1rem 1.25rem",
             borderTop: "1px solid var(--border)",
             background: "var(--bg)",
+            animation: "fadeIn 0.25s ease",
           }}
-          className="mobile-menu"
         >
           {navLinks.map((link) => (
             <Link
@@ -135,23 +143,14 @@ export default function Nav() {
       )}
 
       <style jsx>{`
-        /* Hide hamburger on desktop */
-        @media (min-width: 769px) {
-          .mobile-menu-btn {
-            display: none;
+        @keyframes fadeIn {
+          from {
+            opacity: 0;
+            transform: translateY(-5px);
           }
-          .desktop-menu {
-            display: flex;
-          }
-        }
-
-        /* Show hamburger on mobile, hide desktop links */
-        @media (max-width: 768px) {
-          .mobile-menu-btn {
-            display: block;
-          }
-          .desktop-menu {
-            display: none;
+          to {
+            opacity: 1;
+            transform: translateY(0);
           }
         }
       `}</style>
