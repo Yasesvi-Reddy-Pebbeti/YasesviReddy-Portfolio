@@ -1,42 +1,34 @@
 "use client";
+
 import { recommendations } from "@/lib/recommendationsData";
 import RecommendationCard from "@/components/recommendationsCard";
 import { motion } from "framer-motion";
 
 export default function RecommendationPage() {
   return (
-    <div style={{ padding: "2rem 1.5rem", minHeight: "100vh" }}>
+    <main className="min-h-screen px-4 sm:px-6 lg:px-8 py-16">
       <motion.h1
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4 }}
-        style={{
-          fontSize: "1.9rem",
-          fontWeight: 700,
-          marginBottom: "1.5rem",
-          textAlign: "center",
-        }}
+        className="text-center text-3xl sm:text-4xl font-bold mb-10"
       >
         Recommendations
       </motion.h1>
 
-      <div
-        style={{
-          display: "grid",
-          gap: "1.25rem",
-          gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))",
-        }}
-      >
+      <div className="grid-responsive">
         {recommendations && recommendations.length > 0 ? (
           recommendations.map((rec, index) => (
-            <RecommendationCard key={index} {...rec} />
+            <div key={index} className="card">
+              <RecommendationCard {...rec} />
+            </div>
           ))
         ) : (
-          <p style={{ textAlign: "center", color: "gray" }}>
+          <p className="text-center text-gray-500">
             No recommendations available yet.
           </p>
         )}
       </div>
-    </div>
+    </main>
   );
 }

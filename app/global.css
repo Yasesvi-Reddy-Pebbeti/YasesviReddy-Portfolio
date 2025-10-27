@@ -19,19 +19,24 @@
     --shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
   }
 
-  /* sticky footer layout */
+  /* Sticky footer layout */
   html,
   body {
     height: 100%;
-  } /* NEW */
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
   html {
     background-color: var(--bg);
   }
+
   *,
   *::before,
   *::after {
     box-sizing: border-box;
   }
+
   html,
   body {
     margin: 0;
@@ -39,7 +44,6 @@
   }
 
   body {
-    /* uses your serif by default; Inter is loaded but we keep your style */
     font-family: var(
       --font-serif,
       "Source Serif 4",
@@ -53,23 +57,25 @@
     text-rendering: optimizeLegibility;
 
     /* sticky footer layout */
-    min-height: 100vh; /* NEW */
-    display: flex; /* NEW */
-    flex-direction: column; /* NEW */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
   }
 
   a {
     color: var(--fg);
     text-decoration: none;
     border-bottom: 1px solid transparent;
+    transition: border-color 0.2s ease, color 0.2s ease;
   }
+
   a:hover {
     border-color: var(--fg);
   }
 
   /* centered readable width */
   main {
-    flex: 1; /* NEW: lets footer sit at bottom */
+    flex: 1;
     width: min(1100px, 100%);
     margin: 0 auto;
     padding: 2.2rem 1rem;
@@ -80,16 +86,19 @@
     letter-spacing: -0.02em;
     color: var(--fg-strong);
   }
+
   h2 {
     font-size: clamp(1.3rem, 2vw, 1.6rem);
     letter-spacing: -0.01em;
     color: var(--fg-strong);
     margin: 0 0 0.8rem;
   }
+
   h3 {
     margin: 0.2rem 0 0.5rem;
     color: var(--fg-strong);
   }
+
   p {
     color: var(--muted);
     line-height: 1.75;
@@ -108,11 +117,12 @@
   }
 }
 
-/* 3) Component classes using Tailwind utilities */
+/* 3) Buttons */
 @layer components {
   .btn {
     @apply inline-block px-4 py-3 rounded-xl transition transform duration-200;
   }
+
   .btn:hover {
     @apply -translate-y-0.5;
   }
@@ -120,6 +130,7 @@
   .btn-primary {
     @apply bg-black text-white;
   }
+
   .btn-primary:hover {
     @apply opacity-90;
   }
@@ -127,21 +138,14 @@
   .btn-ghost {
     @apply border border-black text-black bg-transparent;
   }
+
   .btn-ghost:hover {
     @apply bg-black text-white;
   }
 }
 
-/* 4) Responsive layout refinements */
+/* 4) Responsive typography and layout */
 @layer base {
-  /* Prevent horizontal scroll on small screens */
-  html,
-  body {
-    max-width: 100%;
-    overflow-x: hidden;
-  }
-
-  /* Make main content narrower and padded on mobile */
   @media (max-width: 768px) {
     main {
       width: 100%;
@@ -174,7 +178,6 @@
     }
   }
 
-  /* Extra-small screens (phones <480px) */
   @media (max-width: 480px) {
     h1 {
       font-size: 1.5rem;
@@ -194,10 +197,49 @@
   }
 }
 
-/* 5) Utility helper for responsive grids */
+/* 5) Responsive grids + cards */
 @layer components {
+  /* Core responsive grid */
   .grid-responsive {
     @apply grid gap-6;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    align-items: start;
+  }
+
+  /* Mobile layout adjustments */
+  @media (max-width: 480px) {
+    .grid-responsive {
+      grid-template-columns: 1fr !important;
+      gap: 1rem;
+      padding: 0.5rem;
+    }
+  }
+
+  /* Card design for all grids */
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 1.25rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  }
+
+  @media (max-width: 768px) {
+    .card {
+      padding: 1rem;
+    }
+  }
+}
+
+/* 6) Scroll anchor spacing (prevents navbar overlap) */
+@layer base {
+  :target {
+    scroll-margin-top: 5rem;
   }
 }

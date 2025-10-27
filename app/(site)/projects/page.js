@@ -6,7 +6,7 @@ import { projects } from "@/lib/data";
 
 export default function ProjectsClient() {
   return (
-    <section id="projects" className="py-20">
+    <section id="projects" className="py-20 px-4 sm:px-6 lg:px-8">
       {/* Title animation */}
       <motion.div
         initial={{ opacity: 0, y: 40 }}
@@ -27,6 +27,7 @@ export default function ProjectsClient() {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.2, duration: 0.8, ease: "easeOut" }}
         viewport={{ once: true }}
+        className="grid-responsive"
       >
         <ProjectsGrid items={projects} />
       </motion.div>
